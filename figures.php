@@ -2,6 +2,55 @@
 require_once 'includes/auth.php';
 redirectIfNotLoggedIn();
 
+$result = '';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $figure = $_POST['figure'];
+    
+    if ($figure === 'cylinder') {
+        $radius = floatval($_POST['radius']);
+        $height = floatval($_POST['height']);
+        
+        if ($radius > 0 && $height > 0) {
+            $area = 2 * M_PI * $radius * ($radius + $height);
+            $volume = M_PI * pow($radius, 2) * $height;
+            
+            $result = "
+                <div class='alert alert-success'>
+                    <h5>Resultados del Cilindro:</h5>
+                    <p><strong>Radio:</strong> {$radius} unidades</p>
+                    <p><strong>Altura:</strong> {$height} unidades</p>
+                    <p><strong>Área Total:</strong> " . number_format($area, 2) . " unidades²</p>
+                    <p><strong>Volumen:</strong> " . number_format($volume, 2) . " unidades³</p>
+                </div>
+            ";
+        } else {
+            $result = "<div class='alert alert-danger'>El radio y la altura deben ser valores positivos.</div>";
+        }
+    } 
+    elseif ($figure === 'rectangle') {
+        $base = floatval($_POST['base']);
+        $height = floatval($_POST['height']);
+        
+        if ($base > 0 && $height > 0) {
+            $area = $base * $height;
+            $perimeter = 2 * ($base + $height);
+            
+            $result = "
+                <div class='alert alert-success'>
+                    <h5>Resultados del Rectángulo:</h5>
+                    <p><strong>Base:</strong> {$base} unidades</p>
+                    <p><strong>Altura:</strong> {$height} unidades</p>
+                    <p><strong>Área:</strong> " . number_format($area, 2) . " unidades²</p>
+                    <p><strong>Perímetro:</strong> " . number_format($perimeter, 2) . " unidades</p>
+                </div>
+            ";
+        } else {
+            $result = "<div class='alert alert-danger'>La base y la altura deben ser valores positivos.</div>";
+        }
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
