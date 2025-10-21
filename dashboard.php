@@ -38,12 +38,11 @@ redirectIfNotLoggedIn();
                                 </div>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <div class="card text-center h-100">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Información del Sistema</h5>
-                                        <p class="card-text">Sistema desarrollado con PHP, Bootstrap 5 y MySQL.</p>
-                                        <button class="btn btn-outline-info" disabled>Próximamente</button>
-                                    </div>
+                            <div class="card text-center h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title">Módulo de Triángulos</h5>
+                                    <p class="card-text">Determina el tipo de triángulo y calcula área y perímetro.</p>
+                                    <a href="triangles.php" class="btn btn-outline-info">Ir al Módulo</a>
                                 </div>
                             </div>
                         </div>
