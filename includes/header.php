@@ -14,6 +14,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="figures.php">Cálculo de Figuras</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="triangles.php">Triángulos</a>
+                </li>
             </ul>
             <ul class="navbar-nav">
                 <li class="nav-item">
